@@ -7,7 +7,7 @@ import datetime
 import re
 
 
-uri = "YOUR_MONGO_DB_KEY"
+uri = "YOUR_MONGO_DB_URI"
 
 # Create a new client and connect to the server
 client = MongoClient(uri)

@@ -4,7 +4,7 @@ services:
   django_gunicorn:
     volumes:
       - static:/static
-      - "C:/Users/Ian Murimi/Desktop/Pr/Python/Projects/VoucherMS/VoucherMS/media:/media"
+      - "./media:/media"
     build:
      context: .
     ports:
@@ -13,7 +13,7 @@ services:
     build: ./nginx
     volumes:
       - static:/static
-      - "C:/Users/Ian Murimi/Desktop/Pr/Python/Projects/VoucherMS/VoucherMS/media:/media"
+      - "./media:/media"
       - ./nginx-logs:/var/log/nginx
     ports:
       - "80:80"
