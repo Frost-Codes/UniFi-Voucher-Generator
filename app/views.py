@@ -20,8 +20,8 @@ except Exception as e:
     print(e)
 
 
-database = client['YOUR_DATABASE']
-collection = database['YOUR_COLLECTION']
+database = client['YOUR_MONGO_DB_DATABASE']
+collection = database['YOUR_MONGO_DB_COLLECTION']
 
 
 def get_ip_address(request):
@@ -110,7 +110,6 @@ def search(request):
 
 
 def write_log(ip, used_id):
-    # with open(r"C:\Users\Ian Murimi\Desktop\Pr\Python\Projects\VoucherMS\VoucherMS\app\logs\logs.txt", 'a') as file:
     with open('logs/mark_used.log', 'a'):
         file.write('\n' + 'Date Time:\t' + str(datetime.datetime.now()) + '\n')
         file.write(f'IP Address:\t {ip}\n')
