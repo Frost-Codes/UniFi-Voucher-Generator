@@ -1,0 +1,71 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Search {% endblock title %}
+
+
+{% block main-content %}
+
+<div class="container my-5">
+
+
+    <div class="row">
+        {% if vouchers %}
+
+
+        <h1 class="text-center mb-5" style="color: white;">Wi-Fi Vouchers</h1>
+        <div class="col-sm-11">
+            <div class="card">
+                <div class="card-body">
+                    {% if messages %}
+                    {% for msg in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert" id="flash">
+                        <strong></strong> {{ msg }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <h3>Vouchers</h3>
+                    {% for voucher in vouchers %}
+
+                    <div class="row">
+                        <div class="col-sm-3 text-center align-self-center">
+                            <img src="{{ image.image.url }}" alt="" class="img-fluid img-thumbnail shadow-sm" height="150px" width="150px">
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="row">
+                                <h5>Voucher ID</h5>
+                                <p class="mb-2 text-muted small" style="font-family: cursive;">Valid For:</p>
+                                
+                                <div class="d-flex justify-content-between text-center">
+                                    <h6 style="margin-top: 9px;"><strong>Action:</strong></h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <h4>{{ voucher.0 }}</h4>
+                                <p class="mb-2 text-muted small" style="font-family: cursive;">{{ voucher.1 }} Hrs</p>
+                                
+                                <div class="d-flex justify-content-between text-center">
+                                    <a class="mark-used btn btn-sm btn-secondary mr-3" pid="{{ voucher.0 }}">Mark As Used</a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="text-muted" style="margin-top: 20px;">
+                    </div>
+                    
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <h1 class="text-center mb-5" style="color: white;">No Vouchers to display</h1>
+
+        {% endif %}
+    </div>
+
+</div>
+    
+{% endblock main-content %}
